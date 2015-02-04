@@ -1,18 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import sys
-a=int(sys.argv[1])
-l=range(2)
-z=0
-if a > 0:
-	while z <= a-1:
-		l2=l[-1]+l[-1-1]
-		l.append(l2)
-		z=z+1
-	print l[-1-1]
 
-elif a == 0:
-	print l[-1-1]
 """
  ПРАКТИЧНЕ ЗАВДАННЯ №3.2
 (2 можливих балів)
@@ -32,3 +20,18 @@ elif a == 0:
 Вхідні дані: 10
 Результат: 55
 """
+
+import sys
+a=int(sys.argv[1])
+l=range(2)
+z=0
+if a > 0:
+	while z <= a-1:
+		l2=l[-1]+l[-1-1]
+		l.append(l2)
+		z=z+1
+	print l[-1-1]
+
+elif a == 0:
+	print l[-1-1]
+
