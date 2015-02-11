@@ -19,19 +19,13 @@
 '''Это очень плохой код'''
 import sys
 
-s=sys.argv[1]; s=s.lower()
-s1=''
-s2=''
-z=0
-for i in s:
-	if i == " ":
-		del i
-	else:
-		s1=s1+i
-while z < len(s1):
-	s2+=s1[-z-1]
+s=sys.argv[1]; s=s.lower().replace(' ','')
+s2=''; z=0
+
+while z < len(s):
+	s2+=s[-z-1]
 	z+=1
-if (s2 == s1) == True:
+if s2 == s:
 	print "YES"
 else:
 	print "NO"
