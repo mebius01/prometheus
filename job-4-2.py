@@ -18,15 +18,11 @@
  Результат: PATIENCE YOU MUST HAVE my young padawan
  """
 import sys
-s=sys.argv[1];s=list(s)
+s=list(sys.argv[1:])
 s2=''
 z=0
-l=[]
-print s
-for i in s:
-	s2=s2+i
-print s2
-#~ while z < len(s):
-	#~ s2=s2+' '+s[-1-z]
-	#~ z+=1 
-#~ s2=s2.strip(); print s2
+
+while z < len(s):
+	s2=s2+' '+s[-1-z]
+	z+=1 
+s2=s2.strip(); print s2
