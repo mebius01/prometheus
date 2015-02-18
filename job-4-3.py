@@ -47,6 +47,3 @@ if len(s2) == len(s1):
 else:
 	print "NO"
 
-())()(()())(()
-
-
