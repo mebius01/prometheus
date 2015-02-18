@@ -27,8 +27,6 @@ while z < len(s):
 			del l[l.index(i)]
 
 
-l_key={'a':"aaaaa", 'b':"aabbb", 'c':"aaabb", 'd':"aaaab", 'e':"abbbb",
- 'f':"bbbbb--", 'g':"bbbba", 'h':"bbbab", 'i':"bbabb", 'j':"babbb", 
- 'k':"abbba", 'l':"bbbaa", 'm':"bbaab", 'n':"baabb", 'o':"aabba", 'p':"abbab", 'q':"", 
- 'r':"babab", 's':"ababb", 't':"babba", 'u':"abbaa", 'v':"", 'w':"baaab", 'x':"", 'y':"aabab", 'z':""}
+l_key={'a':"aaaaa", 'b':"aabbb", 'c':"aaabb", 'd':"aaaab", 'e':"abbbb", 'f':"", 'g':"", 'h':"", 'i':"bbabb", 'j':"", 'k':"abbba", 'l':"bbbaa", 
+'m':"", 'n':"", 'o':"", 'p':"", 'q':"", 'r':"", 's':"", 't':"", 'u':"", 'v':"", 'w':"", 'x':"", 'y':"", 'z':""]
 
