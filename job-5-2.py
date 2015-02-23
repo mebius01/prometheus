@@ -13,7 +13,6 @@
  Виклик функції: counter(123, 45)
  Повертає: 0
  """
- 
 import sys
 
 a=int(sys.argv[1])
@@ -26,16 +25,10 @@ def clean_list(l):
 			output_list.append(i)
 	return(output_list)
 
-def lis_for(x):
-	l=[]
-	for i in x:
-		l.append(i)
-	return(l)
-
 def counter(x, y):
 	x=str(x); y=str(y); con = 0
-	for i in clean_list(lis_for(y)):
-		if i in clean_list(lis_for(x)):
+	for i in clean_list(y):
+		if i in clean_list(x):
 			con+=1
 	return(con)
 
