@@ -16,25 +16,28 @@
  
 import sys
 
-a=sys.argv[1]
-b=sys.argv[2]
+a=int(sys.argv[1])
+b=int(sys.argv[2])
+
+def clean_list(l):
+	output_list=[]
+	for i in l:
+		if i not in output_list:
+			output_list.append(i)
+	return(output_list)
+
+def lis_for(x):
+	l=[]
+	for i in x:
+		l.append(i)
+	return(l)
+
 def counter(x, y):
-	def clean_list(l):
-		output_list=[]
-		for i in l:
-			if i not in output_list:
-				output_list.append(i)
-		return(output_list)
-	def lis_for(x):
-		l=[]
-		for i in x:
-			l.append(i)
-		return(l)
-	con = 0
-	for i in clean_list(y):
-		if i in clean_list(x):
+	x=str(x); y=str(y); con = 0
+	for i in clean_list(lis_for(y)):
+		if i in clean_list(lis_for(x)):
 			con+=1
 	return(con)
 
-print counter(sys.argv[1], sys.argv[2])
+print counter(a, b)
 
