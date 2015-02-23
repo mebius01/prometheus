@@ -34,7 +34,6 @@ def counter(x, y):
 	for i in clean_list(y):
 		if i in clean_list(x):
 			con+=1
-	return(con)
-
-print counter(sys.argv[1], sys.argv[2])
+	print(con)
+counter(a, b)
 
