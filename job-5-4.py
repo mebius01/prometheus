@@ -25,21 +25,19 @@
 Виклик функції: file_search([ '/home', ['user1'], ['user2', ['my pictures'], ['desktop', 'not this', 'and not this', ['new folder', 'hereiam.py' ] ] ], 'work.ovpn', 'prometheus.7z', ['user3', ['temp'], ], 'hey.py'], 'hereiam.py')
 Повертає: '/home/user2/desktop/new folder/hereiam.py'
 """
-
+#~ 
 def file_search(a, b):
-	s=a[0]+'/'
-	if b in a:
+	if isinstance(a, list):
 		for i in a:
 			if i == b:
-				s=s+i
-	print s
-	#~ if type(a) == list:
-		#~ for i in a:
-			#~ print i == b
-			#~ if type(i) == list:
-				#~ file_search(i, b)
-			
+				return(a[0]+"/"+i)
+			elif isinstance(i, list):
+				file_search(i, b)
+	#~ elif b not in a:
+		#~ return (a[0]+"/"+file_search(a, b))
 
-file_search(['C:', 'backup.log', 'ideas.txt'], 'ideas.txt')
-file_search([ 'D:', ['recycle bin'], ['tmp', ['old'], ['new folder1', 'asd.txt', 'asd.bak', 'find.me.bak' ] ], 'hey.py'], 'find.me')
-file_search([ '/home', ['user1'], ['user2', ['my pictures'], ['desktop', 'not this', 'and not this', ['new folder', 'hereiam.py' ] ] ], 'work.ovpn', 'prometheus.7z', ['user3', ['temp'], ], 'hey.py'], 'hereiam.py')
+
+#~ s=a[0]+'/'
+print file_search(['C:', 'backup.log', 'ideas.txt'], 'ideas.txt')
+print file_search([ 'D:', ['recycle bin'], ['tmp', ['old'], ['new folder1', 'asd.txt', 'asd.bak', 'find.me.bak' ] ], 'hey.py'], 'find.me')
+print file_search([ '/home', ['user1'], ['user2', ['my pictures'], ['desktop', 'not this', 'and not this', ['new folder', 'hereiam.py' ] ] ], 'work.ovpn', 'prometheus.7z', ['user3', ['temp'], ], 'hey.py'], 'hereiam.py')
