@@ -27,17 +27,50 @@
 """
 #~ 
 def file_search(a, b):
-	if isinstance(a, list):
+	s=a[0]+"/"
+	if b in a:
+		return(s+b)
+	if len(a) > 1:
 		for i in a:
-			if i == b:
-				return(a[0]+"/"+i)
-			elif isinstance(i, list):
-				file_search(i, b)
+			if isinstance(i, list):
+				recursion = file_search(i, b)
+				if recursion != None:
+					s = s + recursion
+					return(s)
+				
+#~ def file_search(a, b):
+	#~ s=a[0]+"/"
+	#~ for i in a:
+		#~ if isinstance(i, str):
+			#~ if i == b:
+				#~ return(s+b)
+		#~ elif isinstance(i, list)== True:
+			#~ if len(i) > 1:
+				#~ recursion=file_search(i, b)
+				#~ s = s + recursion
+				#~ if s != None:
+					#~ return(s)
+#~ def file_search(folder, filename):
+    #~ if isinstance(folder, list):
+        #~ path = ''
+        #~ for item in folder:
+            #~ if isinstance(item, list):
+                #~ if filename in item:
+                    #~ path = folder[0] + '/' + filename
+                #~ else: print 'False'
+            #~ else: file_search(item, path)
+        #~ print path
+        #~ return path
+    #~ else:
+        #~ path = folder + '/' + filename
+        #~ return path
+
+print file_search(['C:', 'backup.log', 'ideas.txt'], 'ideas.txt')
+print file_search([ 'D:', ['recycle bin'], ['tmp', ['old'], ['new folder1', 'asd.txt', 'asd.bak', 'find.me.bak' ] ], 'hey.py'], 'find.me')
+print file_search([ '/home', ['user1'], ['user2', ['my pictures'], ['desktop', 'not this', 'and not this', ['new folder', 'hereiam.py' ] ] ], 'work.ovpn', 'prometheus.7z', ['user3', ['temp'], ], 'hey.py'], 'hereiam.py')
+
 	#~ elif b not in a:
 		#~ return (a[0]+"/"+file_search(a, b))
 
 
 #~ s=a[0]+'/'
-print file_search(['C:', 'backup.log', 'ideas.txt'], 'ideas.txt')
-print file_search([ 'D:', ['recycle bin'], ['tmp', ['old'], ['new folder1', 'asd.txt', 'asd.bak', 'find.me.bak' ] ], 'hey.py'], 'find.me')
-print file_search([ '/home', ['user1'], ['user2', ['my pictures'], ['desktop', 'not this', 'and not this', ['new folder', 'hereiam.py' ] ] ], 'work.ovpn', 'prometheus.7z', ['user3', ['temp'], ], 'hey.py'], 'hereiam.py')
