@@ -23,54 +23,34 @@
 Повертає: ERROR
 """
 def count_holes(n):
-	glob_dic={0:1, 4:1, 6:1, 8:2, 9:1}; s=''; con=0
 	if isinstance(n, float):
-		return('ERROR')
-	elif isinstance(n, str):
+		return 'ERROR'
+	try:
+		glob_dic={'0':1, '4':1, '6':1, '8':2, '9':1}; s=''; con=0
+		n=int(n); n=str(n)
 		for i in n:
-			if i.isdigit():
-				i=int(i)
-				if i in glob_dic:
-					s=s+str(i)
-					con+=glob_dic.get(i)
-					if s[0] == '0':
-						con-=1
-						s=s[1:]
-						 
-					
-	elif isinstance(n, int):
-		n=str(n)
-		for i in n:
-			if i.isdigit():
-				i=int(i)
-				if i in glob_dic:
-					s=s+str(i);
-					con+=glob_dic.get(i)
-					if s[0] == '0':
-						con-=1
-						s=s[1:]
-	return(con, s)
-
-count_holes(0), "1"
-count_holes('000000000010'), "1" 
-count_holes(888888888888888888888), "42"
-count_holes(-888888888888888888888), "42"
+			if i in glob_dic:
+				con=con+glob_dic.get(i)
+		return con
+	except ValueError:
+		return "ERROR"
+	except TypeError:
+		return "ERROR"
+#~ Проверка
+print count_holes('123'), '0'
+print count_holes(906), '3'
+print count_holes('001'), '0'
+print count_holes(-8), "2"
+print count_holes(-8.0), "ERROR"
+print '---'
+print count_holes(0), "1"
+print count_holes(888888888888888888888), "42"
+print count_holes(-888888888888888888888), "42"
+print count_holes(69L), "2"
+print count_holes('000000000010'), "1" 
 print count_holes('888888888888888888888.0'), "ERROR"
-count_holes(''), "ERROR"
-count_holes(69L), "2"
-count_holes([1]), "ERROR"
-count_holes(None), "ERROR"
-count_holes('qq'), "ERROR"
-#~ n='1'
-#~ glob_dic={0:1, 4:1, 6:1, 8:2, 9:1}; con=0; s=''
-#~ if isinstance(n, float):
-	#~ print 'ERROR'
-#~ elif isinstance(n, str):
-	#~ for i in n:
-		#~ if i.isdigit():
-			#~ i=int(i)
-			#~ if i in glob_dic:
-				#~ s=s+str(i)
-				#~ con+=1
-#~ print s, con
+print count_holes(''), "ERROR"
+print count_holes([1]), "ERROR"
+print count_holes(None), "ERROR"
+print count_holes('qq'), "ERROR"
 
