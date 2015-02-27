@@ -22,3 +22,15 @@
 Повертає: ['mom']
 
 """
+def find_most_frequent(s):
+	l=''
+	for i in s:
+		if i.isalnum() != True:
+			l=l+" "
+		else: l=l+i
+	return l
+
+
+print find_most_frequent('Hello,Hello, my dear!')
+print find_most_frequent('to understand recursion you need first to understand recursion...')
+print find_most_frequent('Mom! Mom! Are you sleeping?!!!')
