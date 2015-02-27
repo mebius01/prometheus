@@ -28,6 +28,7 @@ def find_most_frequent(s):
 		if i.isalnum() != True:
 			l=l+" "
 		else: l=l+i
+	l=l.split()
 	return l
 
 
