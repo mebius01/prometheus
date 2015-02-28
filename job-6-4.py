@@ -38,7 +38,7 @@ def find_most_frequent(s):
 		elif l2.count(i) in l:
 			l[l2.count(i)].append(i)
 	try:
-		l2=dict([(item, None) for item in l.values()[-1]]).keys()
+		l2=dict([(i, None) for i in l.values()[-1]]).keys()
 		l2.sort()
 		return(l2)
 	except IndexError:
