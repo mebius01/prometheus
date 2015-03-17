@@ -29,3 +29,8 @@
 Виклик функції: convert_n_to_m("A1Z", 36, 16)
 Повертає: 32E7
 """
+def r(x):
+	return ((1*x+2)*x+3)#(((((3 * x + 5) * x + 0) * x + 2) * x + 1) * x + 4)
+
+for i in range(1,19):
+    print i, r(i)
