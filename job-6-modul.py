@@ -29,17 +29,14 @@
 Виклик функції: convert_n_to_m("A1Z", 36, 16)
 Повертає: 32E7
 """
-def r(x):
-	return (((((3 * x + 5) * x + 0) * x + 2) * x + 1) * x + 4)
-def f(x):
-	x=str(x, y); z=0
+#~ def r(x):
+	#~ return (((((3 * x + 5) * x + 0) * x + 2) * x + 1) * x + 4)
+def f(x, y):
+	x=str(x); z=1; rec=int(x[0]) 
 	while z < len(x):
-		int()
-for i in range(1,19):
-    print i, r(i)
+		rec=(rec*y+int(x[z]))
+		z+=1
+	return x, rec
+for i in range(1,16):
+	print i, f(102, i)
 
-s='0123'
-z=0
-while z < len(s):
-	print s[z]
-	z+=1
