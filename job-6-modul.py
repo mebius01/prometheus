@@ -31,15 +31,40 @@
 """
 #~ def r(x):
 	#~ return (((((3 * x + 5) * x + 0) * x + 2) * x + 1) * x + 4)
-def f(x, y):
+'''def f(x, y):
 	x=str(x); z=1; rec=int(x[0]) 
 	while z < len(x):
 		rec=(rec*y+int(x[z]))
 		z+=1
 	return x, rec
 for i in range(1,16):
-	print "в =>", i, f(123, i), "<= в 10-й сист."
+	print "в =>", i, f(-123, i), "<= в 10-й сист."
 
 #~ http://planetcalc.ru/375/ cal
 #~ http://habrahabr.ru/post/124395/ Основы систем счисления
 #~ http://www.tryobj.com/24-varianty-perevoda-chisel-iz-odnoy-sistemy-v-druguyu.html Варианты перевода чисел из одной системы в другую
+'''
+def x_convert_10(x, y):
+	integ=None
+	fract=None
+	s=''
+	x=float(x)/y
+	x=str(x); x=x.split('.'); integ=float(x[0]); fract='0.'+(x[1]); fract=float(fract)
+	if int(x[0]) < y:
+		s=s+str(x[0])
+	
+	return integ, fract
+	#~ integ=None
+	#~ fract=None
+	#~ if type(x) == int:
+		#~ x=str(x)+'.0'
+		
+print x_convert_10(123, 5)
+
+
+
+
+
+
+
+
