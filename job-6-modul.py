@@ -38,5 +38,8 @@ def f(x, y):
 		z+=1
 	return x, rec
 for i in range(1,16):
-	print i, f(102, i)
+	print "в =>", i, f(123, i), "<= в 10-й сист."
 
+#~ http://planetcalc.ru/375/ cal
+#~ http://habrahabr.ru/post/124395/ Основы систем счисления
+#~ http://www.tryobj.com/24-varianty-perevoda-chisel-iz-odnoy-sistemy-v-druguyu.html Варианты перевода чисел из одной системы в другую
