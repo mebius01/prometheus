@@ -45,32 +45,18 @@ for i in range(1,16):
 #~ http://www.tryobj.com/24-varianty-perevoda-chisel-iz-odnoy-sistemy-v-druguyu.html Варианты перевода чисел из одной системы в другую
 '''
 def x_convert_10(x, y):
+	list_10=[]; fract=None; s=''
 	def u(f, d):
-		return(int(round(f*y)))
-	integ=None
-	fract=None
-	s=[]
-	x=float(x)/y
-	x=str(x); x=x.split('.'); integ=float(x[0]); fract='0.'+(x[1]); fract=float(fract)
-	s.append(u(fract, y))
-	
-	
-	return integ, fract, s
-	#~ integ=None
-	#~ fract=None
-	#~ if type(x) == int:
-		#~ x=str(x)+'.0'
-		
-print x_convert_10(123, 5) #(24.0, 0.6, '')
-
-def convert_int_str(str_int):
-	if type(str_int) == float:
-		return(str(str_int))
-	elif type(str_int) == str:
-		return(float(str_int))
-
-def u(f, y):
-	return(round(f*y))
+		return(int(round(f*d)))
+	while x >= y:
+		x=float(x)/y; x=str(x); x=x.split('.'); fract='0.'+(x[1]); fract=float(fract); x=float(x[0]); 
+		list_10.append(u(fract, y))
+		if x < y:
+			list_10.append(int(x)); list_10.reverse()
+	for i in list_10:
+		i=str(i); s=s+i
+	return s
+print x_convert_10(3465, 7)
 
 
 
