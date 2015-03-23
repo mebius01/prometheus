@@ -29,22 +29,14 @@
 Виклик функції: convert_n_to_m("A1Z", 36, 16)
 Повертає: 32E7
 """
-#~ def r(x):
-	#~ return (((((3 * x + 5) * x + 0) * x + 2) * x + 1) * x + 4)
-'''def f(x, y):
+def convert_in_10(x, y): # конвертирует из 2-9 в 10-чную
 	x=str(x); z=1; rec=int(x[0]) 
 	while z < len(x):
 		rec=(rec*y+int(x[z]))
 		z+=1
-	return x, rec
-for i in range(1,16):
-	print "в =>", i, f(-123, i), "<= в 10-й сист."
+	return rec
 
-#~ http://planetcalc.ru/375/ cal
-#~ http://habrahabr.ru/post/124395/ Основы систем счисления
-#~ http://www.tryobj.com/24-varianty-perevoda-chisel-iz-odnoy-sistemy-v-druguyu.html Варианты перевода чисел из одной системы в другую
-'''
-def x_convert_10(x, y):
+def convert_from_10(x, y): # кконвертирует из 10-чной в 2-9
 	list_10=[]; fract=None; s=''
 	def u(f, d):
 		return(int(round(f*d)))
@@ -56,9 +48,11 @@ def x_convert_10(x, y):
 	for i in list_10:
 		i=str(i); s=s+i
 	return s
-print x_convert_10(3465, 7)
 
 
+print convert_in_10(110000010, 2), 'конвертирует из 2-9 в 10-чную'
+
+print convert_from_10(386, 2), 'конвертирует из 10-чной в 2-9'
 
 
 
