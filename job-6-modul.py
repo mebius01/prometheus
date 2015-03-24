@@ -31,12 +31,6 @@
 Повертає: 32E7
 """
 
-
-
-
-
-
-
 def convert_n_to_m(x, n, m):
 	x=str(x)
 	if x[0]=='0':
