@@ -38,7 +38,7 @@ def convert_n_to_m(x, n, m):
 			return '0'
 	while x.startswith('0'):
 		x=x[1:]
-	def convert_in_10(x, y): # конвертирует из 2-36 в 10-чную
+	def convert_in_10(x, y): # конвертирует из 36 в 10-чную
 		x=str(x); z=1
 		lett={'0':0, '1':1, '2':2, '3':3, '4':4, 
 			'5':5, '6':6, '7':7, '8':8, '9':9, 
@@ -52,7 +52,7 @@ def convert_n_to_m(x, n, m):
 			rec=(rec*y+(int(lett.get((x[z])))))
 			z+=1
 		return rec
-	def convert_from_10(x, y): # конвертирует из 10-чной в 2-9
+	def convert_from_10(x, y): # конвертирует из 10-чной в 36
 		list_10=[]; fract=None; s=''
 		lett={0:'0', 1:'1', 2:'2', 3:'3', 4:'4', 
 			5:'5', 6:'6', 7:'7', 8:'8', 9:'9', 
