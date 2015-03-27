@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 def convert_n_to_m(x, n, m):
-	if not isinstance(x, (int, str, long)):
+	if not isinstance(x, (int, str, long, bool)):
 		return False
 	elif '-' in str(x):
 		return False
 	elif ' ' in str(x):
 		x=x.replace(' ','')
 	elif x == '':
+		return False
+	elif x == True:
 		return False
 	x=str(x).upper(); ret_string=''
 	def convert_in_10(x, y):
@@ -58,6 +60,8 @@ def convert_n_to_m(x, n, m):
 	except IndexError:
 		return '0'
 
+
+print convert_n_to_m(True, 1, 2) == False
 print convert_n_to_m('', 12, 5)
 print convert_n_to_m(123123123123123123123, 10, 10)== '123123123123123123123'
 print convert_n_to_m('123123123123123123123', 11, 16)== '2C09BC518E8048D23A'
