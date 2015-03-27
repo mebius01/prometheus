@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
 """
 Розробити функцію convert_n_to_m(x, n, m),
 яка приймає 3 аргументи -- ціле число (в системі числення з основою n) або рядок x, що представляє таке число, 
@@ -15,30 +14,14 @@
 використовувати літери латинського алфавіту у верхньому регістрі від A до Z.
 
 Вважати, що в одиничній системі числення число записується відповідною кількістю нулів.
-
-Наприклад
-Виклик функції: convert_n_to_m([123], 4, 3)
-Повертає: False
-Виклик функції: convert_n_to_m("0123", 5, 6)
-Повертає: 102
-Виклик функції: convert_n_to_m("123", 3, 5)
-Повертає: False
-Виклик функції: convert_n_to_m(123, 4, 1)
-Повертає: 000000000000000000000000000
-Виклик функції: convert_n_to_m(-123.0, 11, 16)
-Повертає: False
-Виклик функції: convert_n_to_m("A1Z", 36, 16)
-Повертає: 32E7
 """
-
 def convert_n_to_m(x, n, m):
-	x=str(x).upper(); ret_string=''; vconvert_in_10=None; vconvert_from_10=None
-	if x.isdigit():
-		if int(x)+0==0:
-			return '0'
-	while x.startswith('0'):
-		x=x[1:]
-	def convert_in_10(x, y): # конвертирует из 36 в 10-чную
+	if not isinstance(x, (int, str, long)):
+		return False
+	#~ elif '-' in str(x):
+		#~ return False
+	x=str(x).upper(); ret_string=''
+	def convert_in_10(x, y): # конверт. из 36 в 10-чную
 		x=str(x); z=1
 		lett={'0':0, '1':1, '2':2, '3':3, '4':4, 
 			'5':5, '6':6, '7':7, '8':8, '9':9, 
@@ -52,7 +35,7 @@ def convert_n_to_m(x, n, m):
 			rec=(rec*y+(int(lett.get((x[z])))))
 			z+=1
 		return rec
-	def convert_from_10(x, y): # конвертирует из 10-чной в 36
+	def convert_from_10(x, y): # конверт. из 10-чной в 36
 		list_10=[]; fract=None; s=''
 		lett={0:'0', 1:'1', 2:'2', 3:'3', 4:'4', 
 			5:'5', 6:'6', 7:'7', 8:'8', 9:'9', 
@@ -72,17 +55,19 @@ def convert_n_to_m(x, n, m):
 				s+=lett.get(i)
 		return s
 	try:
-		vconvert_in_10=convert_in_10(x, n)
+		while x.startswith('0'):
+			x=x[1:]
+		var_in_10=convert_in_10(x, n)
 		if m == 1:
-			for i in range(vconvert_in_10):
+			for i in range(var_in_10):
 				ret_string+='0'
 			return ret_string
-		elif convert_from_10(vconvert_in_10, n) == str(x):
-			return convert_from_10(vconvert_in_10, m)
+		if convert_from_10(var_in_10, n) == str(x):
+			return convert_from_10(var_in_10, m)
 		else:
 			return False
-	except TypeError:
-		return False
+	except IndexError:
+		return '0'
 
 print convert_n_to_m(123123123123123123123, 10, 10)== '123123123123123123123'
 print convert_n_to_m('123123123123123123123', 11, 16)== '2C09BC518E8048D23A'
