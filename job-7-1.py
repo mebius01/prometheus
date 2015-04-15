@@ -32,4 +32,16 @@
  print s0.is_point_inside(0, -1.5, 0) # True
  print s0.get_radius() # 1.6
  """
- 
+class Sphere(object):
+	x=0;y=0;z=0
+	def __init__(self, x,y,z):
+		self.x=x; self.y=y; self.z=z
+	def get_radius(self, radius):
+		self.radius=(self.x**2)+(self.y**2)+(self.z**2)
+		return self.radius
+	def get_volume(self):
+		pass
+	def get_square(self):
+		self.volume=4*(3.14*(self.radius**2))
+	def get_center(self, x,y,z):
+		pass
