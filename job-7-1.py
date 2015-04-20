@@ -33,15 +33,25 @@
  print s0.get_radius() # 1.6
  """
 class Sphere(object):
-	x=0;y=0;z=0
-	def __init__(self, x,y,z):
-		self.x=x; self.y=y; self.z=z
-	def get_radius(self, radius):
-		self.radius=(self.x**2)+(self.y**2)+(self.z**2)
+	p=3.14159265359
+	def __init__(self, radius=1, x=0, y=0, z=0):
+		self.radius=radius; self.x=x; self.y=y; self.z=z
+	def get_radius(self):
 		return self.radius
 	def get_volume(self):
-		pass
+		return(4.0/3.0*(self.p*(self.radius**3)))
 	def get_square(self):
-		self.volume=4*(3.14*(self.radius**2))
-	def get_center(self, x,y,z):
-		pass
+		return(4*(self.p*(self.radius**2)))
+	def get_center(self):
+		return(self.x, self.y, self.z)
+	def set_radius(self, r):
+		self.radius=r
+	def set_center(self,x1,y1,z1):
+		self.x=x1; self.y=y1; self.z=z1
+	#~ def is_point_inside(x,y,z)
+
+s=Sphere(0.5)
+print s.get_volume()
+print s.get_square()
+print s.get_radius()
+print s.get_center()
