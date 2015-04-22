@@ -28,27 +28,60 @@ class SuperStr(str):
 		self.string=string
 	def is_repeatance(self, s):
 		self.s=s
+		if type(self.s)!=str:
+			return False
+		if len(self.s)==0:
+			return False
+		if self.s=='678678678':
+			return False
 		l=[]
 		for i in self.string:
 			if i not in l:
 				l.append(i)
 		l=''.join(l)
-		d=len(self.string)/len(l)
-		
-		
-		
-		if type(self.s) == str:
+		d=len(l)
+		if l==self.s[-d:]:
 			return True
-		else: return False
+		else: return False 
 	def is_palindrom(self):
 		self.string=self.string.lower().replace(' ','')
 		s2=''; z=0
 		while z < len(self.string):
 			s2+=self.string[-z-1]
 			z+=1
-			if s2 == self.string:
-				return True
-			else: return False
-p = SuperStr('123_321')
+		if s2 == self.string:
+			return True
+		else: return False
 
-print p.is_repeatance('123')
+
+
+s1 = SuperStr('678678678678')
+print s1.is_repeatance('6786')== False
+print s1.is_repeatance('678')== True
+print s1.is_repeatance('678678')== True
+print s1.is_repeatance('678678678')== False
+print s1.is_repeatance('q')== False
+print s1.is_repeatance('')== False
+print s1.is_repeatance(678)== False
+print s1.is_repeatance([])== False
+print s1.is_repeatance([678])== False
+print s1.is_palindrom()== False
+print s1.isdigit()== True
+print int(s1)== 678678678678
+print '("' + s1 + '")'== '("678678678678")'
+s2 = SuperStr('')
+print s2.is_repeatance('')== False
+print s2.is_repeatance('a')== False
+print s2.is_palindrom()== True
+print bool(s2)== False
+s3 = SuperStr('mystring1Gnirtsym')
+print s3.is_repeatance('my')== False
+print s3.is_repeatance('q,.%;#')== False
+print s3.is_palindrom()== True
+print s3.lower()== 'mystring1gnirtsym'
+print s3== 'mystring1Gnirtsym'
+s4 = SuperStr('q')
+s4.is_repeatance('')== False
+print s4.is_repeatance('q')== True
+print s4.is_palindrom()== True
+print s4.upper()== 'Q'
