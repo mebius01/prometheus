@@ -48,10 +48,37 @@ class Sphere(object):
 		self.radius=r
 	def set_center(self,x1,y1,z1):
 		self.x=x1; self.y=y1; self.z=z1
-	#~ def is_point_inside(x,y,z)
+	def is_point_inside(self,x,y,z):
+		if ((self.x-x)**2+(self.y-y)**2+(self.z-z)**2)<=self.radius**2:
+			return True
+		else:
+			return False
 
-s=Sphere(0.5)
-print s.get_volume()
-print s.get_square()
-print s.get_radius()
-print s.get_center()
+
+s1 = Sphere()
+print s1.get_center(), '== (0, 0, 0)'
+print s1.get_radius(), '== 1'
+print s1.get_volume(), '== 4.18879020479'
+print s1.get_square(), '== 12.5663706144'
+print s1.is_point_inside(0, 0.99, 0), '== True'
+print s1.is_point_inside(0.99, 0, 0), '== True'
+print s1.is_point_inside(0, 0, 0.99), '== True'
+s1.set_radius(1.1)
+s1.set_center(0.5, 1, 0)
+print s1.is_point_inside(0, 0.99, 0), '== True'
+print s1.is_point_inside(0.99, 0, 0), '== False'
+print s1.is_point_inside(0, 0, 0.99), '== False'
+print s1.get_center(), '== (0.5, 1, 0)'
+print s1.get_radius(), '== 1.1'
+s2 = Sphere(2)
+print s2.get_center(), '== (0, 0, 0)'
+print s2.get_radius(), '== 2'
+print s2.is_point_inside(0, 0.99, 0), '== True'
+print s2.is_point_inside(1.99, 0, 0), '== True'
+print s2.is_point_inside(0, 0, 2.99), '== False'
+s3 = Sphere(1.99, 1, 2, -1)
+print s3.get_center(), '== (1, 2, -1)'
+print s3.get_radius(), '== 1.99'
+print s3.is_point_inside(0, 0.99, 0), '== True'
+print s3.is_point_inside(0.99, 0, 0), '== False'
+print s3.is_point_inside(0, 0, 0.99), '== False'
