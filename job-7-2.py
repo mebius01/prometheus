@@ -54,3 +54,21 @@
  print oleg.is_certified() # (62.5, True)
  """
  
+class Student(object):
+	def __init__(self, name_st, conf):
+		self.name_st=name_st; self.conf=conf
+	def make_lab(self,m,n):
+		pass
+	def make_exam(self,m):
+		pass
+	def is_certified(self):
+		pass
+
+conf = {
+ 'exam_max': 30,
+ 'lab_max': 7,
+ 'lab_num': 10,
+ 'k': 0.61,
+ }
+
+s=Student("Ivan", conf)
