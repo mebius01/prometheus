@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 Розробити класс SuperStr, який наслідує функціональність стандартного типу str і містить 2 нових методи:
-метод is_repeatance(s), який приймає 1 аргумент s та повертає True або False в залежності від того, 
+is_repeatance(s), який приймає 1 аргумент s та повертає True або False в залежності від того, 
 чи може бути поточний рядок бути отриманий цілою кількістю повторів рядка s. 
 Повернути False, якщо s не є рядком. Вважати, що порожній рядок не містить повторів.
-метод is_palindrom(), який повертає True або False в залежності від того, чи є рядок паліндромом. 
+
+is_palindrom(), який повертає True або False в залежності від того, чи є рядок паліндромом. 
 Регістрами символів нехтувати. Порожній рядок вважати паліндромом.
 
 Приклад послідовності дій для тестування класу:
@@ -22,4 +23,32 @@
  p = SuperStr('123_321')
  print p.is_palindrom() # True
  """
- 
+class SuperStr(str):
+	def __init__(self, string):
+		self.string=string
+	def is_repeatance(self, s):
+		self.s=s
+		l=[]
+		for i in self.string:
+			if i not in l:
+				l.append(i)
+		l=''.join(l)
+		d=len(self.string)/len(l)
+		
+		
+		
+		if type(self.s) == str:
+			return True
+		else: return False
+	def is_palindrom(self):
+		self.string=self.string.lower().replace(' ','')
+		s2=''; z=0
+		while z < len(self.string):
+			s2+=self.string[-z-1]
+			z+=1
+			if s2 == self.string:
+				return True
+			else: return False
+p = SuperStr('123_321')
+
+print p.is_repeatance('123')
