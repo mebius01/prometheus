@@ -29,4 +29,81 @@
 
 """
 def find_fraction(summ):
-	
+	p_summ=summ/2.0
+	if (summ == 0) or (summ == 1) or (summ == 2):
+		return False
+	elif summ%2 == 0:
+		if p_summ%2 == 0:
+			return(int(p_summ-1), int(p_summ+1))
+		else:
+			return(int(p_summ-2), int(p_summ+2))
+	else:
+		return(int(p_summ-0.5), int(p_summ+0.5))
+
+
+print find_fraction(2), False
+print find_fraction(3) , (1, 2)
+print find_fraction(10) , (3, 7)
+print find_fraction(62) , (29, 33)
+print find_fraction(150000001) , (75000000, 75000001)
+print find_fraction(0), False
+print find_fraction(1), False
+
+"""
+Помилки
+Неправильно обрахований результат. Для виклику 
+find_fraction(0) 
+очікуваний результат: False. Ваш результат: '(-1, 1)'
+Ваша відповідь:
+(-1, 1)
+Правильна відповідь:
+False
+Помилки
+Неправильно обрахований результат. Для виклику 
+find_fraction(1) 
+очікуваний результат: False. Ваш результат: '(0, 1)'
+Ваша відповідь:
+(0, 1)
+Правильна відповідь:
+False
+Правильно
+Виклик:
+find_fraction(7)
+Відповідь:
+(3, 4)
+Правильно
+Виклик:
+find_fraction(15)
+Відповідь:
+(7, 8)
+Правильно
+Виклик:
+find_fraction(100)
+Відповідь:
+(49, 51)
+Правильно
+Виклик:
+find_fraction(1992)
+Відповідь:
+(995, 997)
+Правильно
+Виклик:
+find_fraction(2015)
+Відповідь:
+(1007, 1008)
+Правильно
+Виклик:
+find_fraction(100500)
+Відповідь:
+(50249, 50251)
+Правильно
+Виклик:
+find_fraction(19921988)
+Відповідь:
+(9960993, 9960995)
+Правильно
+Виклик:
+find_fraction(100000000)
+Відповідь:
+(49999999, 50000001)
+"""
