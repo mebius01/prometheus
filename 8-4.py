@@ -38,22 +38,66 @@ print make_sudoku(3) #
 
 """
 def make_sudoku(size):
+	size=size**2
 	import random
-	l_g=[]; y=0; etal=[]
-	def ran(s):
-		l=[]
-		while len(l) < s:
-			x=random.randint(1,s)
-			if x not in l:
-				l.append(x)
-		return l
-	while (y < size):
-		x=ran(size)
-		if x[0] not in etal:
-			etal.append(x[0])
-			l_g.append(x)
-		y+=1
-	
-	return len(l_g)
+	l=[]; y=0; etal=range(1,size+1); random.shuffle(etal)
+	while len(l) < size:
+		for i in etal:
+			l.append([i])
 
-print make_sudoku(9)
+	while y < size:
+		random.shuffle(etal)
+		for i in etal:
+			if i not in l[y]:
+				l[y].append(i)
+		y+=1
+	return l
+
+print make_sudoku(3)
+print make_sudoku(1)
+print make_sudoku(2)
+
+	#~ def ran(s):
+		#~ l=[]
+		#~ while len(l) < s:
+			#~ x=random.randint(1,s)
+			#~ if x not in l:
+				#~ l.append(x)
+		#~ return l
+	#~ while (y < size):
+		#~ x=ran(size)
+		#~ if x[0] not in etal:
+			#~ etal.append(x[0])
+			#~ l_g.append(x)
+		#~ y+=1
+	#~ 
+"""
+def check_sudoku(l):
+	n = len(l)
+	if n == 1 and l == [[1]]:
+	    return True
+	
+	for i in xrange(n):
+	    for j in xrange(n):
+	        v = l[i][j]
+	        for t in xrange(j + 1, n):
+	            if l[i][t] == v:
+	                return False
+	        for t in xrange(i + 1, n):
+	            if l[t][j] == v:
+	                return False
+	
+	nn = int(math.sqrt(n))
+	for i in xrange(nn):
+	   for j in xrange(nn):
+	    t = j * nn
+	    lt = []
+	    for x in xrange(nn):
+	        lt += l[i * nn + x][t : t + nn]
+	    for i1 in xrange(n):
+	        for j1 in xrange(i1 + 1, n):
+	            if lt[i1] == lt[j1]:
+	                return False;
+	return True
+def make_sudoku(size):
+"""
