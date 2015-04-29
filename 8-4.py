@@ -47,11 +47,13 @@ def make_sudoku(size):
 			if x not in l:
 				l.append(x)
 		return l
-	while y < size:
+	while (y < size):
 		x=ran(size)
-		l_g.append(x)
+		if x[0] not in etal:
+			etal.append(x[0])
+			l_g.append(x)
 		y+=1
 	
-	return l_g
+	return len(l_g)
 
 print make_sudoku(9)
