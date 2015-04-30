@@ -53,9 +53,8 @@ def make_sudoku(size):
 		y+=1
 	return l
 
-print make_sudoku(3)
-print make_sudoku(1)
-print make_sudoku(2)
+
+print make_sudoku(42)
 
 	#~ def ran(s):
 		#~ l=[]
