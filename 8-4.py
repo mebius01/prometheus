@@ -38,65 +38,143 @@ print make_sudoku(3) #
 
 """
 def make_sudoku(size):
+	a=size; b=size
 	size=size**2
 	import random
-	l=[]; y=0; etal=range(1,size+1); random.shuffle(etal)
-	while len(l) < size:
-		for i in etal:
-			l.append([i])
+	l=[]; y=0; etal=range(1,size+1); #random.shuffle(etal)
+	def w(x, e):
+		while len(l) < x: #<---
+			l.append(e)
+			e=e[b:] + e[:b]
+		e=e[1:] + e[:1]
+		return e
+#~ 
+	w(a, etal)
 
-	while y < size:
-		random.shuffle(etal)
-		for i in etal:
-			if i not in l[y]:
-				l[y].append(i)
-		y+=1
+		
+	#~ while len(l) < a: #<---
+		#~ l.append(etal)
+		#~ etal=etal[b:] + etal[:b]
+	#~ etal=etal[1:] + etal[:1]
+	#~ a+=b
+	#~ print a
+	#~ while len(l) < a: #<---
+		#~ l.append(etal)
+		#~ etal=etal[b:] + etal[:b]
+	#~ etal=etal[1:] + etal[:1]
+	#~ a+=b
+	#~ print a
+	#~ while len(l) < a: #<---
+		#~ l.append(etal)
+		#~ etal=etal[b:] + etal[:b]
+
+	
 	return l
 
 
-print make_sudoku(42)
 
-	#~ def ran(s):
-		#~ l=[]
-		#~ while len(l) < s:
-			#~ x=random.randint(1,s)
-			#~ if x not in l:
-				#~ l.append(x)
-		#~ return l
-	#~ while (y < size):
-		#~ x=ran(size)
-		#~ if x[0] not in etal:
-			#~ etal.append(x[0])
-			#~ l_g.append(x)
-		#~ y+=1
+print make_sudoku(3) #== [[1, 2, 3, 4, 5, 6, 7, 8, 9], [4, 5, 6, 7, 8, 9, 1, 2, 3], [7, 8, 9, 1, 2, 3, 4, 5, 6], [2, 3, 4, 5, 6, 7, 8, 9, 1], [5, 6, 7, 8, 9, 1, 2, 3, 4], [8, 9, 1, 2, 3, 4, 5, 6, 7], [3, 4, 5, 6, 7, 8, 9, 1, 2], [6, 7, 8, 9, 1, 2, 3, 4, 5], [9, 1, 2, 3, 4, 5, 6, 7, 8]]
+#~ 
+#~ def check_sudoku(l):
+	#~ import math
+	#~ n = len(l)
+	#~ if n == 1 and l == [[1]]:
+	    #~ return True
 	#~ 
+	#~ for i in xrange(n):
+	    #~ for j in xrange(n):
+	        #~ v = l[i][j]
+	        #~ for t in xrange(j + 1, n):
+	            #~ if l[i][t] == v:
+	                #~ return False
+	        #~ for t in xrange(i + 1, n):
+	            #~ if l[t][j] == v:
+	                #~ return False
+	#~ 
+	#~ nn = int(math.sqrt(n))
+	#~ for i in xrange(nn):
+	   #~ for j in xrange(nn):
+	    #~ t = j * nn
+	    #~ lt = []
+	    #~ for x in xrange(nn):
+	        #~ lt += l[i * nn + x][t : t + nn]
+	    #~ for i1 in xrange(n):
+	        #~ for j1 in xrange(i1 + 1, n):
+	            #~ if lt[i1] == lt[j1]:
+	                #~ return False;
+	#~ return True
+
+#~ print check_sudoku(make_sudoku(2))
+#~ print check_sudoku(make_sudoku(3))
+#~ print check_sudoku(make_sudoku(5))
+#~ print check_sudoku(make_sudoku(10))
+#~ print check_sudoku(make_sudoku(42))
+
 """
-def check_sudoku(l):
-	n = len(l)
-	if n == 1 and l == [[1]]:
-	    return True
-	
-	for i in xrange(n):
-	    for j in xrange(n):
-	        v = l[i][j]
-	        for t in xrange(j + 1, n):
-	            if l[i][t] == v:
-	                return False
-	        for t in xrange(i + 1, n):
-	            if l[t][j] == v:
-	                return False
-	
-	nn = int(math.sqrt(n))
-	for i in xrange(nn):
-	   for j in xrange(nn):
-	    t = j * nn
-	    lt = []
-	    for x in xrange(nn):
-	        lt += l[i * nn + x][t : t + nn]
-	    for i1 in xrange(n):
-	        for j1 in xrange(i1 + 1, n):
-	            if lt[i1] == lt[j1]:
-	                return False;
-	return True
-def make_sudoku(size):
+
+Правильно
+
+Виклик:
+is_sudoku( make_sudoku(1) , 1)
+
+Відповідь:
+
+    True
+
+Помилки
+
+Неправильно обрахований результат. Для виклику 
+is_sudoku( make_sudoku(3) , 3) 
+очікуваний результат: True. Ваш результат: 'False'
+
+Ваша відповідь:
+
+    False
+
+Правильна відповідь:
+
+    True
+
+Помилки
+
+Неправильно обрахований результат. Для виклику 
+is_sudoku( make_sudoku(5) , 5) 
+очікуваний результат: True. Ваш результат: 'False'
+
+Ваша відповідь:
+
+    False
+
+Правильна відповідь:
+
+    True
+
+Помилки
+
+Неправильно обрахований результат. Для виклику 
+is_sudoku( make_sudoku(10) , 10) 
+очікуваний результат: True. Ваш результат: 'False'
+
+Ваша відповідь:
+
+    False
+
+Правильна відповідь:
+
+    True
+
+Помилки
+
+Неправильно обрахований результат. Для виклику 
+is_sudoku( make_sudoku(42) , 42) 
+очікуваний результат: True. Ваш результат: 'False'
+
+Ваша відповідь:
+
+    False
+
+Правильна відповідь:
+
+    True
+
 """
