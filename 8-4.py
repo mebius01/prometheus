@@ -87,7 +87,7 @@ print check_sudoku(make_sudoku(2))
 print check_sudoku(make_sudoku(3))
 print check_sudoku(make_sudoku(5))
 print check_sudoku(make_sudoku(10))
-print check_sudoku(make_sudoku(42))
+print check_sudoku(make_sudoku(34))
 
 """
 
